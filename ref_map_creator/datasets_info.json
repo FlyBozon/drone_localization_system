@@ -1,0 +1,28 @@
+{
+  "datasets": {
+    "landcover.ai": {
+      "name": "LandCover.ai",
+      "description": "Polish land cover dataset with 5 classes",
+      "classes": {
+        "num_classes": 5,
+        "class_names": [
+          "Background",
+          "Buildings",
+          "Woodlands",
+          "Water",
+          "Roads"
+        ],
+        "class_mapping": {
+          "0": "background",
+          "1": "buildings",
+          "2": "woodlands",
+          "3": "water",
+          "4": "roads"
+        }
+      },
+      "image_size": [512, 512],
+      "channels": 3,
+      "format": "RGB"
+    }
+  }
+}

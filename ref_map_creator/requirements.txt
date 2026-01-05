@@ -1,0 +1,33 @@
+# GUI Requirements
+PyQt5>=5.15.0
+PyQtWebEngine>=5.15.0
+
+# Geospatial Data
+osmnx>=1.2.0
+geopandas>=0.10.0
+shapely>=1.8.0
+
+# Image Processing
+opencv-python>=4.5.0
+Pillow>=9.0.0
+numpy>=1.21.0
+
+# Visualization
+matplotlib>=3.5.0
+scipy>=1.7.0
+
+# Deep Learning (for segmentation)
+tensorflow>=2.10.0
+segmentation-models>=1.0.1
+keras>=2.10.0
+
+# Networking
+requests>=2.27.0
+
+# Optional but recommended for GPU
+# tensorflow-gpu>=2.10.0
+
+# Notes:
+# - For CPU-only: use tensorflow instead of tensorflow-gpu
+# - For GPU: ensure CUDA and cuDNN are properly installed
+# - OSMnx may require additional system libraries (libgdal, etc.)

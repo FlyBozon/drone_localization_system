@@ -1,0 +1,396 @@
+{
+  "datasets": {
+    "landcover.ai": {
+      "name": "LandCover.ai",
+      "description": "High-resolution land cover classification dataset for Poland",
+      "type": "satellite",
+      "classes": {
+        "num_classes": 5,
+        "class_names": ["unlabeled", "buildings", "woodlands", "water", "roads"],
+        "class_ids": [0, 1, 2, 3, 4],
+        "class_colors": {
+          "unlabeled": [0, 0, 0],
+          "buildings": [128, 0, 0],
+          "woodlands": [0, 128, 0], 
+          "water": [0, 0, 128],
+          "roads": [128, 128, 128]
+        },
+        "ignore_class": 0
+      },
+      "data_format": {
+        "image_format": "tif",
+        "mask_format": "tif", 
+        "mask_type": "grayscale_indexed",
+        "image_channels": 3,
+        "bit_depth": 8
+      },
+      "preprocessing": {
+        "patch_size": 256,
+        "overlap": 64,
+        "normalization": "minmax",
+        "resize_needed": false
+      },
+      "paths": {
+        "dataset_dir": "landcover.ai.v1" 
+      }
+    },
+    
+    "deepglobe": {
+      "name": "DeepGlobe",
+      "description": "RGB satellite imagery for land cover classification",
+      "type": "satellite",
+      "classes": {
+        "num_classes": 7,
+        "class_names": ["unknown", "urban", "agriculture", "rangeland", "forest", "water", "barren"],
+        "class_ids": [0, 1, 2, 3, 4, 5, 6],
+        "class_colors": {
+          "unknown": [0, 0, 0],
+          "urban": [0, 255, 255],
+          "agriculture": [255, 255, 0],
+          "rangeland": [255, 0, 255],
+          "forest": [0, 255, 0],
+          "water": [0, 0, 255],
+          "barren": [255, 255, 255]
+        },
+        "ignore_class": 0
+      },
+      "data_format": {
+        "image_format": "jpg",
+        "mask_format": "png",
+        "mask_type": "rgb_color_coded",
+        "image_channels": 3,
+        "bit_depth": 8
+      },
+      "preprocessing": {
+        "patch_size": 256,
+        "overlap": 32,
+        "normalization": "standardization",
+        "resize_needed": true,
+        "target_size": [512, 512]
+      },
+      "paths": {
+        "dataset_dir": "deepglobe"
+      }
+    },
+    "inria": {
+    "name": "Inria", 
+    "description": "Large-scale aerial image dataset for building footprint extraction and segmentation",
+    "type": "satellite",
+    "classes": {
+        "num_classes": 2,
+        "class_names": ["background", "building"],
+        "class_ids": [0, 1],
+        "class_colors": {
+            "background": [0, 0, 0],
+            "building": [255, 255, 255]
+        },
+        "ignore_class": 0
+    },
+        "data_format": {
+            "image_format": "tif",
+            "mask_format": "tif",
+            "mask_type": "grayscale_indexed",
+            "image_channels": 3,
+            "bit_depth": 8
+        },
+        "preprocessing": {
+            "patch_size": 256,
+            "overlap": 64,
+            "normalization": "minmax",
+            "resize_needed": false
+        },
+        "paths": {
+            "dataset_dir": "inria"
+        }
+    },
+
+    "uavid": {
+      "name": "UAVid",
+      "description": "UAV semantic segmentation dataset for urban scenes with 8 classes",
+      "type": "drone",
+      "classes": {
+        "num_classes": 8,
+        "class_names": ["background", "building", "road", "tree", "vegetation", "moving_car", "static_car", "human"],
+        "class_ids": [0, 1, 2, 3, 4, 5, 6, 7],
+        "class_colors": {
+          "background": [0, 0, 0],
+          "building": [128, 0, 0],
+          "road": [128, 64, 128],
+          "tree": [0, 128, 0],
+          "vegetation": [128, 128, 0],
+          "moving_car": [64, 0, 128],
+          "static_car": [192, 0, 192],
+          "human": [64, 64, 0]
+        },
+        "ignore_class": [5,6,7]
+      },
+      "data_format": {
+        "image_format": "png",
+        "mask_format": "png",
+        "mask_type": "rgb_color_coded",
+        "image_channels": 3,
+        "bit_depth": 8
+      },
+      "preprocessing": {
+        "patch_size": 512,
+        "overlap": 64,
+        "normalization": "standardization",
+        "resize_needed": false
+      },
+      "paths": {
+        "dataset_dir": "uavid"
+      }
+    },
+
+    "visloc": {
+      "name": "UAV-VisLoc",
+      "description": "Visual localization dataset with drone imagery for place recognition and semantic segmentation",
+      "type": "drone",
+      "classes": {
+        "num_classes": 6,
+        "class_names": ["background", "building", "road", "vegetation", "water", "sky"],
+        "class_ids": [0, 1, 2, 3, 4, 5],
+        "class_colors": {
+          "background": [0, 0, 0],
+          "building": [128, 0, 0],
+          "road": [128, 128, 128],
+          "vegetation": [0, 128, 0],
+          "water": [0, 0, 128],
+          "sky": [128, 128, 255]
+        },
+        "ignore_class": 0
+      },
+      "data_format": {
+        "image_format": "jpg",
+        "mask_format": "png",
+        "mask_type": "rgb_color_coded",
+        "image_channels": 3,
+        "bit_depth": 8
+      },
+      "preprocessing": {
+        "patch_size": 256,
+        "overlap": 32,
+        "normalization": "minmax",
+        "resize_needed": true,
+        "target_size": [256, 256]
+      },
+      "paths": {
+        "dataset_dir": "uav-visloc"
+      }
+    },
+
+    "vdd": {
+      "name": "VDD",
+      "description": "Various drone imagery dataset with diverse aerial scenes and objects",
+      "type": "drone",
+      "classes": {
+        "num_classes": 6,
+        "class_names": ["background", "building", "road", "vegetation", "vehicle", "other"],
+        "class_ids": [0, 1, 2, 3, 4, 5],
+        "class_colors": {
+          "background": [0, 0, 0],
+          "building": [128, 0, 0],
+          "road": [128, 128, 128],
+          "vegetation": [0, 128, 0],
+          "vehicle": [255, 0, 0],
+          "other": [128, 128, 0]
+        },
+        "ignore_class": 0
+      },
+      "data_format": {
+        "image_format": "jpg",
+        "mask_format": "png",
+        "mask_type": "grayscale_indexed",
+        "image_channels": 3,
+        "bit_depth": 8
+      },
+      "preprocessing": {
+        "patch_size": 416,
+        "overlap": 48,
+        "normalization": "standardization",
+        "resize_needed": false
+      },
+      "paths": {
+        "dataset_dir": "vdd"
+      }
+    },
+
+    "udd": {
+      "name": "UDD",
+      "description": "Urban drone dataset focused on city environments and urban infrastructure",
+      "type": "drone",
+      "classes": {
+        "num_classes": 8,
+        "class_names": ["background", "building", "road", "tree", "vegetation", "vehicle", "roof", "facade"],
+        "class_ids": [0, 1, 2, 3, 4, 5, 6, 7],
+        "class_colors": {
+          "background": [0, 0, 0],
+          "building": [128, 0, 0],
+          "road": [128, 64, 128],
+          "tree": [0, 128, 0],
+          "vegetation": [128, 128, 0],
+          "vehicle": [0, 0, 142],
+          "roof": [70, 70, 70],
+          "facade": [102, 102, 156]
+        },
+        "ignore_class": 0
+      },
+      "data_format": {
+        "image_format": "jpg",
+        "mask_format": "png",
+        "mask_type": "grayscale_indexed",
+        "image_channels": 3,
+        "bit_depth": 8
+      },
+      "preprocessing": {
+        "patch_size": 512,
+        "overlap": 64,
+        "normalization": "standardization",
+        "resize_needed": false
+      },
+      "paths": {
+        "dataset_dir": "udd"
+      }
+    },
+
+    "idd": {
+      "name": "IDD", 
+      "description": "Integrated drone dataset - extension to VDD with additional classes and scenes",
+      "type": "drone",
+      "classes": {
+        "num_classes": 10,
+        "class_names": ["background", "building", "road", "vegetation", "vehicle", "water", "roof", "shadow", "terrain", "sky"],
+        "class_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "class_colors": {
+          "background": [0, 0, 0],
+          "building": [128, 0, 0],
+          "road": [128, 128, 128],
+          "vegetation": [0, 128, 0],
+          "vehicle": [255, 0, 0],
+          "water": [0, 0, 255],
+          "roof": [70, 70, 70],
+          "shadow": [64, 64, 64],
+          "terrain": [152, 251, 152],
+          "sky": [70, 130, 180]
+        },
+        "ignore_class": 0
+      },
+      "data_format": {
+        "image_format": "jpg",
+        "mask_format": "png",
+        "mask_type": "grayscale_indexed",
+        "image_channels": 3,
+        "bit_depth": 8
+      },
+      "preprocessing": {
+        "patch_size": 512,
+        "overlap": 64,
+        "normalization": "standardization",
+        "resize_needed": false
+      },
+      "paths": {
+        "dataset_dir": "idd"
+      }
+    },
+
+    "aerialIVL": {
+      "name": "Aerial IVL",
+      "description": "Aerial image dataset for infrastructure and vegetation labeling with fine-grained classes",
+      "type": "drone",
+      "classes": {
+        "num_classes": 10,
+        "class_names": ["background", "building", "road", "tree", "grass", "water", 
+                       "power_line", "vehicle", "roof", "shadow"],
+        "class_ids": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        "class_colors": {
+          "background": [0, 0, 0],
+          "building": [128, 0, 0],
+          "road": [128, 128, 128],
+          "tree": [0, 128, 0],
+          "grass": [0, 255, 0],
+          "water": [0, 0, 255],
+          "power_line": [255, 255, 0],
+          "vehicle": [255, 0, 255],
+          "roof": [128, 64, 0],
+          "shadow": [64, 64, 64]
+        },
+        "ignore_class": 0
+      },
+      "data_format": {
+        "image_format": "tif",
+        "mask_format": "tif",
+        "mask_type": "grayscale_indexed",
+        "image_channels": 3,
+        "bit_depth": 16
+      },
+      "preprocessing": {
+        "patch_size": 256,
+        "overlap": 32,
+        "normalization": "minmax",
+        "resize_needed": false
+      },
+      "paths": {
+        "dataset_dir": "aerialivl"
+      }
+    },
+
+    "CS-UAV": {
+      "name": "CS-UAV", 
+      "description": "UAV-based urban scene understanding dataset with Cityscapes-like annotations",
+      "type": "drone",
+      "classes": {
+        "num_classes": 8,
+        "class_names": ["road", "building", "vegetation", "vehicle", "roof", "other", "background", "boundary"],
+        "class_ids": [0, 1, 2, 3, 4, 5, 6, 7],
+        "class_colors": {
+          "road": [128, 64, 128],
+          "building": [70, 70, 70],
+          "vegetation": [107, 142, 35],
+          "vehicle": [0, 0, 142],
+          "roof": [128, 0, 0],
+          "other": [152, 251, 152],
+          "background": [0, 0, 0],
+          "boundary": [255, 255, 255]
+        },
+        "ignore_class": 6 
+      },
+      "data_format": {
+        "image_format": "png",
+        "mask_format": "png",
+        "mask_type": "grayscale_indexed",
+        "image_channels": 3,
+        "bit_depth": 8
+      },
+      "preprocessing": {
+        "patch_size": 512,
+        "overlap": 64,
+        "normalization": "standardization",
+        "resize_needed": false
+      },
+      "paths": {
+        "dataset_dir": "cs-uav"
+      }
+    }
+  },
+  
+  "training_params": {
+    "default": {
+      "batch_size": 16,
+      "epochs": 100,
+      "learning_rate": 0.001,
+      "optimizer": "adam",
+      "loss_function": "sparse_categorical_crossentropy",
+      "metrics": ["accuracy", "mean_iou"]
+    },
+    "satellite": {
+      "batch_size": 32,
+      "patch_size": 256,
+      "learning_rate": 0.0005
+    },
+    "drone": {
+      "batch_size": 16,
+      "patch_size": 512,
+      "learning_rate": 0.001
+    }
+  }
+}
